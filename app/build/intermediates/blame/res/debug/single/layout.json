@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\noteslist_item.xml",
+        "source": "E:\\Android\\NotePad\\app\\src\\main\\res\\layout\\noteslist_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listback.xml",
+        "source": "E:\\Android\\NotePad\\app\\src\\main\\res\\layout\\listback.xml"
+    },
+    {
+        "merged": "E:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\title_editor.xml",
+        "source": "E:\\Android\\NotePad\\app\\src\\main\\res\\layout\\title_editor.xml"
+    },
+    {
+        "merged": "E:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\newnoteslist_item.xml",
+        "source": "E:\\Android\\NotePad\\app\\src\\main\\res\\layout\\newnoteslist_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\note_editor.xml",
+        "source": "E:\\Android\\NotePad\\app\\src\\main\\res\\layout\\note_editor.xml"
+    }
+]

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_save"
+          android:icon="@drawable/ic_menu_save"
+          android:alphabeticShortcut='s'
+          android:title="@string/menu_save"
+          android:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/menu_revert"
+          android:icon="@drawable/ic_menu_revert"
+          android:title="@string/menu_revert" />
+    <item android:title="Change background color">
+        <menu>
+            <item android:title="white"
+                android:id="@+id/color_white"/>
+            <item android:title="gray"
+                android:id="@+id/color_gray"/>
+            <item android:title="blue"
+                android:id="@+id/color_blue"/>
+            <item android:title="yellow"
+                android:id="@+id/color_yellow"/>
+            <item android:title="red"
+                android:id="@+id/color_red"/>
+        </menu>
+    </item>
+    <item android:title="Export"
+        android:id="@+id/export"/>
+    <item android:id="@+id/menu_delete"
+          android:icon="@drawable/ic_menu_delete"
+          android:title="@string/menu_delete"
+          android:showAsAction="ifRoom|withText" />
+</menu>
