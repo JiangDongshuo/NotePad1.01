@@ -13,16 +13,16 @@ super.onCreate(savedInstanceState);</br>
 setContentView(R.layout.listback);//加入自己设置的背景layout为后续搜索做准备</br>
 </br>
 String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;//增加一条搜索的项目，时间</br>
-        int[] viewIDs = { R.id.head1,R.id.time1 };</br>
-        SimpleCursorAdapter adapter</br>
-            = new SimpleCursorAdapter(</br>
-                      this,</br>
-                      R.layout.newnoteslist_item,</br>
-                      cursor,</br>
-                      dataColumns,</br>
-                      viewIDs</br>
-              );</br>
-        ListView listView=(ListView) findViewById(android.R.id.list);</br>
+int[] viewIDs = { R.id.head1,R.id.time1 };</br>
+SimpleCursorAdapter adapter</br>
+= new SimpleCursorAdapter(</br>
+this,</br>
+R.layout.newnoteslist_item,</br>
+cursor,</br>
+dataColumns,</br>
+viewIDs</br>
+);</br>
+ListView listView=(ListView) findViewById(android.R.id.list);</br>
 listView.setAdapter(adapter);//将适配器载入自己编写的view中</br>
 </br>
 效果截图如下：</br>
@@ -35,27 +35,27 @@ listView.setAdapter(adapter);//将适配器载入自己编写的view中</br>
 之前创建的适配器背景中加入了一个置顶的文本编辑框用于搜索</br>
 监听文本框变化，如有变化重新加载适配器并加入搜索条件，核心代码如下：</br>
 editText.addTextChangedListener(new TextWatcher() {//监听文本框变化</br>
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {</br>
-            }</br>
-            public void onTextChanged(CharSequence s, int start, int before, int count) {</br>
-                System.out.println("搜索框文本变化了");</br>
-                System.out.println(editText.getText().toString());//获取文本框内容</br>
-                String [] searchContent={editText.getText().toString()+"%"};//设置搜索条件</br>
-                Cursor cursor = managedQuery(</br>
-                        getIntent().getData(),            </br>
-                        PROJECTION,                       </br>
-                        "title like ?",                             // 设置搜索条件</br>
-                        searchContent,                             </br>
-                        NotePad.Notes.DEFAULT_SORT_ORDER  </br>
-                );</br>
-                ListView listView=(ListView) findViewById(android.R.id.list);</br>
-                String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;</br>
-                int[] viewIDs = { R.id.head1,R.id.time1 };</br>
-                SimpleCursorAdapter adapter=new SimpleCursorAdapter(</br>
-                       listView.getContext() ,R.layout.newnoteslist_item,cursor,dataColumns,viewIDs</br>
-                );</br>
-                listView.setAdapter(adapter);//重新载入适配器</br>
-            }</br>
+public void beforeTextChanged(CharSequence s, int start, int count, int after) {</br>
+}</br>
+public void onTextChanged(CharSequence s, int start, int before, int count) {</br>
+System.out.println("搜索框文本变化了");</br>
+System.out.println(editText.getText().toString());//获取文本框内容</br>
+String [] searchContent={editText.getText().toString()+"%"};//设置搜索条件</br>
+Cursor cursor = managedQuery(</br>
+getIntent().getData(),</br>
+PROJECTION,</br>
+"title like ?",// 设置搜索条件</br>
+searchContent,</br>
+NotePad.Notes.DEFAULT_SORT_ORDER  </br>
+);</br>
+ListView listView=(ListView) findViewById(android.R.id.list);</br>
+String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;</br>
+int[] viewIDs = { R.id.head1,R.id.time1 };</br>
+SimpleCursorAdapter adapter=new SimpleCursorAdapter(</br>
+listView.getContext() ,R.layout.newnoteslist_item,cursor,dataColumns,viewIDs</br>
+);</br>
+listView.setAdapter(adapter);//重新载入适配器</br>
+}</br>
 </br>
 效果截图如下：</br>
 输入tes会将所有包含tes标题的笔记实时搜索出来</br>
@@ -65,21 +65,21 @@ editText.addTextChangedListener(new TextWatcher() {//监听文本框变化</br>
 </br>
 # 修改背景颜色
 在menu加入一个group，并增加对group内item的监听，对view的背景色进行改变，核心代码如下：</br>
-            case R.id.color_white:</br>
-                noteEditor.setBackgroundColor(Color.WHITE);</br>
-                break;</br>
-            case R.id.color_gray:</br>
-                noteEditor.setBackgroundColor(Color.GRAY);</br>
-                break;</br>
-            case R.id.color_blue:</br>
-                noteEditor.setBackgroundColor(Color.BLUE);</br>
-                break;</br>
-            case R.id.color_yellow:</br>
-                noteEditor.setBackgroundColor(Color.YELLOW);</br>
-                break;</br>
-            case R.id.color_red:</br>
-                noteEditor.setBackgroundColor(Color.RED);</br>
-                break;</br>
+case R.id.color_white:</br>
+noteEditor.setBackgroundColor(Color.WHITE);</br>
+break;</br>
+case R.id.color_gray:</br>
+noteEditor.setBackgroundColor(Color.GRAY);</br>
+break;</br>
+case R.id.color_blue:</br>
+noteEditor.setBackgroundColor(Color.BLUE);</br>
+break;</br>
+case R.id.color_yellow:</br>
+noteEditor.setBackgroundColor(Color.YELLOW);</br>
+break;</br>
+case R.id.color_red:</br>
+noteEditor.setBackgroundColor(Color.RED);</br>
+break;</br>
 </br>
 效果截图如下：</br>
 点击Change backgroundcolor</br>
@@ -91,6 +91,28 @@ editText.addTextChangedListener(new TextWatcher() {//监听文本框变化</br>
 </br>
 # 导出笔记
 在menu加入一个item，并增加对item的监听，查出相关title和note分别作为文件名和内容，核心代码如下：</br>
+case R.id.export:</br>
+Intent intent = getIntent();</br>
+mCursor.moveToFirst();</br>
+int colTitleIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE);</br>
+String title = mCursor.getString(colTitleIndex);//查询到title</br>
+int colNoteIndex=mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_NOTE);</br>
+String note=mCursor.getString(colNoteIndex);//查询到note</br>
+String filePath="/NotePadExport/";//指定路径</br>
+String fileName=title+".txt";//指定文件名</br>
+writeTxtToFile("txt content", filePath, fileName);//创建文件</br>
+break;</br>
+</br>
+效果截图如下：</br>
+点击Export</br>
+![image](https://github.com/JiangDongshuo/NotePad1.01/raw/master/app/src/main/res/drawable/9.png)</br>
+由于模拟器没有文件查看软件我们通过控制台确认文件创建成功</br>
+![image](https://github.com/JiangDongshuo/NotePad1.01/raw/master/app/src/main/res/drawable/10.png)</br>
+</br>
+# 美化UI
+效果截图如下：</br>
+增加了noteList的图标和修改了标题和时间的大小及布局</br>
+![image](https://github.com/JiangDongshuo/NotePad1.01/raw/master/app/src/main/res/drawable/1.png)</br>
 
 
        
