@@ -1,2 +1,3 @@
-# NotePad
-This is an AndroidStudio rebuild of google SDK sample NotePad
+# 期中作业
+添加了两项基本功能：显示时间和搜索
+添加了三项附加功能：美化UI,更改背景颜色和文件导出
